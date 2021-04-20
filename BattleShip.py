@@ -24,6 +24,8 @@ def print_board(board):
     print("Battle Field")
     print("\n")
     for row in board:
+        print('0 1 2 3 4')
+        print("\n")
         print (" ".join(row))
 
 def random_row(board):
