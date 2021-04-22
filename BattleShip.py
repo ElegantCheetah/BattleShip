@@ -1,16 +1,17 @@
-#Zain Kergaye
-#Mr. Webster
-#Programming 2
 
-#Hours wasted: 0.1
+#*Zain Kergaye
+#* Mr. Webster
+#*Programming 2
+
+#? Hours wasted: 2.0
 
 #To DO:
-#1. Create a class that makes an array 
-#2. Get user input for the array
-#3. Check if number is 1 or 0 
-#5. give user feedback
-#6. If number is 3 then say that they already hit that spot
-#7. end game when they hit everything
+#! 1. Create a class that makes an array 
+#! 2. Get user input for the array
+#! 3. Check if number is 1 or 0 
+#! 5. give user feedback
+#! 6. If number is 3 then say that they already hit that spot
+#! 7. end game when they hit everything
 
 from random import randint
 
@@ -22,13 +23,16 @@ def menu():
     print('3. Exit game')
     print('')
 
+def howToPlay():
+    #enter playing instructions here
+    print('dummy text')
 
 
 board = []
 
 
 
-#Function for printing the board:
+
 def print_board(board):
     print('\n')
     print("Battle Field")
@@ -45,17 +49,22 @@ def random_col(board):
 
 
 loop = 0
-
 while (loop != 1):
 
     menu()
     menuInput = int(input('Enter selection 1-3: '))
     if(menuInput == 3):
         break
+
     if (menuInput == 2):
-        print('This section has not been coded yet')
-        #Put new things here
+        
+        scores = open('Scores')
+        BSscores = scores.read()
+        print(BSscores)
+        scores.close()
+
     if(menuInput == 1):
+        guessNum = 0
         board.clear()
         for x in range(5):
             board.append(["0"] * 5)
@@ -72,17 +81,21 @@ while (loop != 1):
             print('\n')
 
             if (guess_row == ship_row & guess_col == ship_col):
+                guessNum = guessNum + 1
                 print("You win!")
+                print('You sunk the battleship in ', guessNum, ' guesses')
+                input('Press any key to continue')
                 break
 
             else:
+                guessNum = guessNum + 1
                 if(guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
                     print("That's not in the board")
-                    #print_board(board)
                 elif(board[guess_row][guess_col] == 'X'):
                     print('Already hit')
-                    #print_board(board)
                 else:
                     print('miss')
                     board[guess_row][guess_col] = 'X'
-                    #print_board(board)
+
+    if(menuInput >= 4):
+        print('Wrong answer please try again')
