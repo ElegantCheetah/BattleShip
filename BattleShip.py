@@ -14,6 +14,7 @@
 #! 7. end game when they hit everything
 
 from random import randint
+import os
 
 def menu():
     print('------------------------')
@@ -32,7 +33,8 @@ def howToPlay():
     print("|missiles to an area on the playing field, enter a number|")
     print("|to select a specific row and then a specific columb     |")
     print('----------------------------------------------------------')
-    input('Press any key to continue')
+    os.system("pause")
+
 
 board = []
 
@@ -61,7 +63,7 @@ loop = 0
 while (loop != 1):
 
     menu()
-    menuInput = int(input('Enter selection 1-3: '))
+    menuInput = int(input('Enter selection 1-4: '))
     if(menuInput == 4):
         break
     
@@ -97,7 +99,7 @@ while (loop != 1):
                 print("|You win!                              |")
                 print('|You sunk the battleship in ', guessNum, ' guesses|')
                 print('----------------------------------------')
-                input('Press any key to continue')
+                os.system("pause")
                 #!scores.write('Best num:')
                 #!scores.write(guessNum)
                 break
