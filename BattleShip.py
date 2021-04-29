@@ -3,15 +3,9 @@
 #* Mr. Webster
 #* Programming 2
 
-#? Hours wasted: 2.0
-
 #ToDO:
-#! 1. Create a class that makes an array 
-#! 2. Get user input for the array
-#! 3. Check if number is 1 or 0 
-#! 5. give user feedback
-#! 6. If number is 3 then say that they already hit that spot
-#! 7. end game when they hit everything
+#! Comment code
+#! Brush up existing code
 
 from random import randint
 import os
@@ -21,13 +15,11 @@ def menu():
     print('|Welcome to BattleShip!|')
     print('|                      |')
     print('|1. Play BattleShip    |')
-    print('|2. View scores        |')
-    print('|3. How to play        |')
-    print('|4. Exit game          |')
+    print('|2. How to play        |')
+    print('|3. Exit game          |')
     print('------------------------')
 
 def howToPlay():
-    #enter playing instructions here
     print('----------------------------------------------------------')
     print('|This is BattleShip, you are at a command console sending|')
     print("|missiles to an area on the playing field, enter a number|")
@@ -35,11 +27,7 @@ def howToPlay():
     print('----------------------------------------------------------')
     os.system("pause")
 
-
 board = []
-
-
-
 
 def print_board(board):
     print('\n')
@@ -50,35 +38,29 @@ def print_board(board):
         print (" | ".join(row))
     print('------------------')
 
-
 def random_row(board):
     return randint(0,len(board) - 1)
 
 def random_col(board):
     return randint(0,len(board[0]) - 1)
 
-scores = open('Scores')
-
 loop = 0
 while (loop != 1):
 
     menu()
     menuInput = int(input('Enter selection 1-4: '))
-    if(menuInput == 4):
+    if(menuInput == 3):
         break
     
-    if(menuInput == 3):
+    if(menuInput == 2):
         howToPlay()
 
-    if (menuInput == 2):
-        
-        BSscores = scores.read()
-        print(BSscores)
-
-
     if(menuInput == 1):
+
         guessNum = 0
+
         board.clear()
+        
         for x in range(5):
             board.append(["0"] * 5)
         
@@ -124,4 +106,3 @@ while (loop != 1):
         print('-------------------------------')
         print('|Wrong answer please try again|')
         print('-------------------------------')
-scores.close()
